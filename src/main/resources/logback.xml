@@ -36,7 +36,8 @@
     </appender>
 
     <Root level="info">
-
+        <if condition='isDefined("LOG_TYPE")'>
+        <then>
         <if condition='property("LOG_TYPE").equalsIgnoreCase("CONSOLE")'>
             <then>
                 <appender-ref ref="Console"/>
@@ -46,6 +47,11 @@
             <then>
                 <appender-ref ref="RollingFile"/>
             </then>
+        </if>
+        </then>
+            <else>
+                <appender-ref ref="Console"/>
+            </else>
         </if>
     </Root>
     <Logger name="com.paddyBetFairTest" level="trace"></Logger>
