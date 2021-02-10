@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PaddypowertestApplication {
+public class PaddypowerTestApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaddypowertestApplication.class, args);
+        SpringApplication.run(PaddypowerTestApplication.class, args);
     }
 
 }
