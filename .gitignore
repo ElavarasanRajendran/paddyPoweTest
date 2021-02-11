@@ -14,6 +14,7 @@ dist/
 *.py[cod]
 
 # Log files
+logs/
 *.log
 
 # Package files
@@ -48,3 +49,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+*.iml
+mvnw.cmd
+mvnw
