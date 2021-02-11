@@ -1,6 +1,6 @@
 package com.paddy.power.test.paddypowertest.common;
 
-public class selectionLiability {
+public class SelectionLiability {
     private String selectionName;
     private String currency;
     private int numberOfBets;
