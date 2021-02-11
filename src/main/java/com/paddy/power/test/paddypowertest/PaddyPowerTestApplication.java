@@ -1,8 +1,10 @@
 package com.paddy.power.test.paddypowertest;
 
+import com.paddy.power.test.paddypowertest.service.FileParserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(value = {"com.paddy.power.test*"})
@@ -13,5 +15,4 @@ public class PaddyPowerTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(PaddyPowerTestApplication.class, args);
     }
-
 }

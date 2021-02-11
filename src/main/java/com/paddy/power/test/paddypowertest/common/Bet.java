@@ -10,7 +10,7 @@ public class Bet {
     private String timestamp;
     private int selectionId;
     private String selectionName;
-    private long stake;
-    private long price;
+    private double stake;
+    private double price;
     private String currency;
 }
