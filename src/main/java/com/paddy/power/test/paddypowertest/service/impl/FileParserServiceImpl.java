@@ -42,7 +42,6 @@ public class FileParserServiceImpl implements FileParserService {
 
     private Bet mapToBet(String line) {
         String[] p = line.split(COMMA);
-        int size = p.length;
         Bet bet = new Bet();
 
         bet.setBedId(p[0]);
@@ -51,7 +50,7 @@ public class FileParserServiceImpl implements FileParserService {
         }
 
         if (p[2] != null && p[2].trim().length() > 0) {
-            bet.setSelectionId(Integer.valueOf(p[2]));
+            bet.setSelectionId(Integer.parseInt(p[2]));
         }
 
         if (p[3] != null && p[3].trim().length() > 0) {
@@ -59,11 +58,11 @@ public class FileParserServiceImpl implements FileParserService {
         }
 
         if (p[4] != null && p[4].trim().length() > 0) {
-            bet.setStake(Float.valueOf(p[4]));
+            bet.setStake(Float.parseFloat(p[4]));
         }
 
         if (p[5] != null && p[5].trim().length() > 0) {
-            bet.setPrice(Float.valueOf(p[5]));
+            bet.setPrice(Float.parseFloat(p[5]));
         }
 
         if (p[6] != null && p[6].trim().length() > 0) {
