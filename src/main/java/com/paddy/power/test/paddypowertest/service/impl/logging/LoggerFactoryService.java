@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class LoggerFactory {
+public class LoggerFactoryService {
 
     private final ConsoleLoggerService consoleLoggerService;
 
@@ -20,7 +20,7 @@ public class LoggerFactory {
 
 
 
-    public LoggerFactory(ConsoleLoggerService consoleLoggerService, FileLoggerService fileLoggerService) {
+    public LoggerFactoryService(ConsoleLoggerService consoleLoggerService, FileLoggerService fileLoggerService) {
         this.consoleLoggerService = consoleLoggerService;
         this.fileLoggerService = fileLoggerService;
     }

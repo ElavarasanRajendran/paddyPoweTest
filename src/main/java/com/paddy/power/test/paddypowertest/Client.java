@@ -6,7 +6,7 @@ import com.paddy.power.test.paddypowertest.common.dto.TotalLiability;
 import com.paddy.power.test.paddypowertest.service.FileParserService;
 import com.paddy.power.test.paddypowertest.service.LoggerService;
 import com.paddy.power.test.paddypowertest.service.ReportService;
-import com.paddy.power.test.paddypowertest.service.impl.logging.LoggerFactory;
+import com.paddy.power.test.paddypowertest.service.impl.logging.LoggerFactoryService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -34,7 +34,7 @@ public class Client implements CommandLineRunner {
               fileParserService.parseCsvFile("/Users/elavarasanrajendran/Downloads/BettingSheet.csv");
       List<TotalLiability> totalLiabilityList = reportService.generateTotalLiabilityReport(betList);
       List<SelectionLiability> selectionLiabilities = reportService.generateSelectionLiabilityReport(betList);
-      LoggerService loggerService = LoggerFactory.createInstance(logType);
+      LoggerService loggerService = LoggerFactoryService.createInstance(logType);
       loggerService.logTotalLiabilityReport(totalLiabilityList);
       loggerService.logSelectionLiabilityReport(selectionLiabilities);
     }
