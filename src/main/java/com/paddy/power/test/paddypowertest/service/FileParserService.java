@@ -1,6 +1,6 @@
 package com.paddy.power.test.paddypowertest.service;
 
-import com.paddy.power.test.paddypowertest.common.Bet;
+import com.paddy.power.test.paddypowertest.common.dto.Bet;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

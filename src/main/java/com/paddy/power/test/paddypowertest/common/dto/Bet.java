@@ -1,4 +1,4 @@
-package com.paddy.power.test.paddypowertest.common;
+package com.paddy.power.test.paddypowertest.common.dto;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

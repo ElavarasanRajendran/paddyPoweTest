@@ -1,6 +1,6 @@
 package com.paddy.power.test.paddypowertest.service.impl;
 
-import com.paddy.power.test.paddypowertest.common.Bet;
+import com.paddy.power.test.paddypowertest.common.dto.Bet;
 import com.paddy.power.test.paddypowertest.service.FileParserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
