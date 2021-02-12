@@ -1,8 +1,8 @@
 package com.paddy.power.test.paddypowertest.service.impl;
 
-import com.paddy.power.test.paddypowertest.common.Bet;
-import com.paddy.power.test.paddypowertest.common.SelectionLiability;
-import com.paddy.power.test.paddypowertest.common.TotalLiability;
+import com.paddy.power.test.paddypowertest.common.dto.Bet;
+import com.paddy.power.test.paddypowertest.common.dto.SelectionLiability;
+import com.paddy.power.test.paddypowertest.common.dto.TotalLiability;
 import com.paddy.power.test.paddypowertest.service.ReportService;
 import org.springframework.stereotype.Service;
 
