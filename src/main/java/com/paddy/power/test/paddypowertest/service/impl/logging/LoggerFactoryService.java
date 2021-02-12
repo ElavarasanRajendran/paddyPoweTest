@@ -18,8 +18,6 @@ public class LoggerFactoryService {
 
     private static final Map<String, LoggerService> factoryHandler = new HashMap<>();
 
-
-
     public LoggerFactoryService(ConsoleLoggerService consoleLoggerService, FileLoggerService fileLoggerService) {
         this.consoleLoggerService = consoleLoggerService;
         this.fileLoggerService = fileLoggerService;

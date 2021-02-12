@@ -13,4 +13,7 @@ public class LoggerConstants {
 
     public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("##.00");
 
+    public static final String TOTAL_LIABILITY_LOG_HEADER = "Currency \t No of Bets \t Total Stakes \t Total Liabilities";
+    public static final String SELECTION_LIABILITY_LOG_HEADER = "Selection Name \t\t Currency \t\t No of Bets \t\t Total Stakes \t\t Total Liabilities";
+
 }
