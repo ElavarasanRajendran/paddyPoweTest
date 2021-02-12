@@ -35,7 +35,6 @@ public class Client implements CommandLineRunner {
       List<TotalLiability> totalLiabilityList = reportService.generateTotalLiabilityReport(betList);
       List<SelectionLiability> selectionLiabilities = reportService.generateSelectionLiabilityReport(betList);
       LoggerService loggerService = LoggerFactoryService.createInstance(logType);
-      loggerService.logTotalLiabilityReport(totalLiabilityList);
-      loggerService.logSelectionLiabilityReport(selectionLiabilities);
+      loggerService.logReports(selectionLiabilities,totalLiabilityList);
     }
 }
