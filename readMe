@@ -1,0 +1,20 @@
+The test question is solved using java and springboot.
+Design Patterns Used.
+1. Strategy Design Pattern - reading file and parsing into Bets in which any
+    new functionality can be easily plugged into the existing code by just implementing the FileParserService
+2. Factory Design Pattern - For implementing logging functionality.
+    The logging functionality is driven a config property in application.property file.
+    If you want to run the application with console logging just set the paddy.BetFair.Test.Logging.Type to CONSOLE.
+    If you want to run the application with File logging just set the paddy.BetFair.Test.Logging.Type to FILE.
+    The log file is generated under resource directory.
+   The LoggerFactoryService makes a call to the appropriate logging service based on this property.
+
+ An additional logging functionality is also implemented using the logback.xml file which read the paddy.BetFair.Test.Logging.Type
+ from the application.properties file and appropriate logging functions.
+ To get this alternative logback functionality working just rename the AlternativeLogback.xml to logback.xml and allow spring to take care of the rest.
+
+
+ The Client.java file is just a demo client class which stimulates the solution implemented.
+ This code can be easily integrated to any of the existing application without any new implementation changes.
+
+

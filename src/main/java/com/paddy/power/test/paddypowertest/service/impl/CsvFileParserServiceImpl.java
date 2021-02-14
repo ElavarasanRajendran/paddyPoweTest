@@ -9,34 +9,31 @@ import org.springframework.stereotype.Service;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
-public class FileParserServiceImpl implements FileParserService {
+public class CsvFileParserServiceImpl implements FileParserService<File,Bet> {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileParserServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CsvFileParserServiceImpl.class);
     private static final String COMMA = ",";
 
     @Override
-    public List<Bet> parseCsvFile(String location) {
+    public List<Bet> readInputData(File inputFile) {
         List<Bet> inputList = new ArrayList<>();
-        try{
+        if(Objects.nonNull(inputFile)) {
+            try {
+                InputStream inputFS = new FileInputStream(inputFile);
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(inputFS))) {
 
-            File inputF = new File(location);
-            InputStream inputFS = new FileInputStream(inputF);
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(inputFS))) {
-
-                inputList = br.lines().skip(1).map((Function<String, Bet>)
-                        this::mapToBet).collect(Collectors.toList());
-                br.close();
+                    inputList = br.lines().skip(1).map(this::mapToBet).collect(Collectors.toList());
+                }
+            } catch (FileNotFoundException e) {
+                logger.info("File cannot be found at the location", e.getMessage());
+            } catch (IOException e) {
+                logger.info("File cannot be read", e.getMessage());
             }
-        } catch (FileNotFoundException e) {
-            logger.info("File cannot be found at the location", e.getMessage());
-        } catch (IOException e) {
-            logger.info("File cannot be read", e.getMessage());
         }
-
         return inputList ;
     }
 

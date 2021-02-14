@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.util.List;
 
 @Component
@@ -30,11 +31,13 @@ public class Client implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-      List<Bet> betList =
-              fileParserService.parseCsvFile("/Users/elavarasanrajendran/Downloads/BettingSheet.csv");
-      List<TotalLiability> totalLiabilityList = reportService.generateTotalLiabilityReport(betList);
-      List<SelectionLiability> selectionLiabilities = reportService.generateSelectionLiabilityReport(betList);
-      LoggerService loggerService = LoggerFactoryService.createInstance(logType);
-      loggerService.logReports(selectionLiabilities,totalLiabilityList);
+        ClassLoader classLoader = getClass().getClassLoader();
+
+        File inputFile = new File(classLoader.getResource("BettingSheet.csv").getFile());
+        List<Bet> betList = fileParserService.readInputData(inputFile);
+        List<TotalLiability> totalLiabilityList = reportService.generateTotalLiabilityReport(betList);
+        List<SelectionLiability> selectionLiabilities = reportService.generateSelectionLiabilityReport(betList);
+        LoggerService loggerService = LoggerFactoryService.createInstance(logType);
+        loggerService.logReports(selectionLiabilities,totalLiabilityList);
     }
 }

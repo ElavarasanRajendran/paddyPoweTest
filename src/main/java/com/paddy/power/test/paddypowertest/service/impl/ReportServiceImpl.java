@@ -15,7 +15,7 @@ public class ReportServiceImpl implements ReportService {
         Map<String, List<Bet>> betMap = new HashMap<>();
         List<TotalLiability> totalLiabilityList = new ArrayList<>();
 
-        betList.forEach(bet -> {
+        betList.stream().filter(Objects::nonNull).forEach(bet -> {
             if(betMap.containsKey(bet.getCurrency())) {
                 List<Bet> bets = betMap.get(bet.getCurrency());
                 bets.add(bet);
