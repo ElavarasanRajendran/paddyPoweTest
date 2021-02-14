@@ -5,11 +5,11 @@ import com.paddy.power.test.paddypowertest.common.dto.TotalLiability;
 import com.paddy.power.test.paddypowertest.service.LoggerService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
 
 import static com.paddy.power.test.paddypowertest.common.constants.LoggerConstants.SELECTION_LIABILITY_LOG_HEADER;
 import static com.paddy.power.test.paddypowertest.common.constants.LoggerConstants.TOTAL_LIABILITY_LOG_HEADER;
@@ -22,9 +22,6 @@ public class FileLoggerService implements LoggerService{
     @Override
     public void logReports(List<SelectionLiability> selectionLiabilityList,
                            List<TotalLiability> totalLiabilityList) throws IOException {
-        if(Objects.nonNull(logfileWriter)) {
-            logfileWriter = this.createFileWriter();
-        }
         logfileWriter.write("The Selection Liability report is: \n");
         logfileWriter.write(SELECTION_LIABILITY_LOG_HEADER);
         selectionLiabilityList.forEach( selectionLiability -> {
@@ -47,6 +44,11 @@ public class FileLoggerService implements LoggerService{
         });
         logfileWriter.flush();
         logfileWriter.close();
+    }
+
+    @PostConstruct
+    public void setup() throws IOException {
+        this.logfileWriter = this.createFileWriter();
     }
 
     private FileWriter createFileWriter() throws IOException {
