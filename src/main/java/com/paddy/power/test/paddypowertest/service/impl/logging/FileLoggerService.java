@@ -19,6 +19,11 @@ public class FileLoggerService implements LoggerService{
 
     private FileWriter logfileWriter;
 
+    @PostConstruct
+    public void setup() throws IOException {
+        this.logfileWriter = this.createFileWriter();
+    }
+
     @Override
     public void logReports(List<SelectionLiability> selectionLiabilityList,
                            List<TotalLiability> totalLiabilityList) throws IOException {
@@ -42,13 +47,7 @@ public class FileLoggerService implements LoggerService{
                 e.printStackTrace();
             }
         });
-        logfileWriter.flush();
         logfileWriter.close();
-    }
-
-    @PostConstruct
-    public void setup() throws IOException {
-        this.logfileWriter = this.createFileWriter();
     }
 
     private FileWriter createFileWriter() throws IOException {
